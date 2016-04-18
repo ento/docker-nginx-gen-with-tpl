@@ -157,7 +157,10 @@ server {
 	}
 }
 {{ else }}
-
+# Not generating HTTPS server, generating HTTP server only.
+# Make sure cert files are present at:
+# - /etc/nginx/certs/{{ $cert }}.crt
+# - /etc/nginx/certs/{{ $cert }}.key
 server {
 	server_name {{ $host }};
 	listen 80 {{ $default_server }};
